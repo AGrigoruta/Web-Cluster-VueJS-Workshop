@@ -1,13 +1,13 @@
 # vuejs-covid-hotseating-manager
 
-## 5-get-seating
+## 6-login
 
-1.  Configure the state so it accepts the seat ARRAY
+1.  Handle Input data
 
-2.  Create actions to fetch the seating data from the DB based on a given day
+2.  Handle form submission -> Save the username in local storage
 
-3.  Save the seating object inside the state
+3.  Handle office map visibility only if logged in
 
-4.  Create a getter to get a single seat based on the id
+4.  Display username inside this view
 
-5.  Integrate the seating data in the OfficeMap component
+5.  Display logout button -> handle logout -> remove from localstorage, hide office map component

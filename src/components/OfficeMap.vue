@@ -4312,6 +4312,9 @@
 		props: {
 			seatCoordinates: Array
 		},
+		mounted() {
+			this.$store.dispatch("fetchSeatConfig");
+		},
 		computed: {
 			seats: {
 				get: function () {

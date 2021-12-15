@@ -19,7 +19,6 @@ export default {
         this.$store.commit('increment')
         console.log(this.$store.state.count)
     },
-
     decrement() {
         this.$store.commit('decrement')
         console.log(this.$store.state.count)
