@@ -1,12 +1,9 @@
-# vuejs-covid-hotseating-manager
+## 2-project-config
 
-## 1-vue-cli
-
-1. Install @vue/cli globally
+1.  Checkout to new branch
     
-2.  Create project from command line -> vue create *project name*, manual preset, vue 3, vuex, router, sass
+2.  It should have all the needed dependencies in a package.json, along with the boilerplate code
     
-3.  Run vue ui
+3.  Import it in vue cli ui
     
-4.  Create new project, manual preset, vue 3, vuex, router, sass from gui
-
+4.  Npm install and npm serve
