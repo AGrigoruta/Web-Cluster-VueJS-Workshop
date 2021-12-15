@@ -4295,16 +4295,54 @@
 		ECBAgAABAgQ+AUff5yRFgAABAgQIECBAgAABAgQIECBAIC3g6EvPoxwBAgQIECBAgAABAgQIECBA
 		gACBT8DR9zlJESBAgAABAgQIECBAgAABAgQIEEgLOPrS8yhHgAABAgQIECBAgAABAgQIECBA4BMY
 		ots4GGfUZccAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 0 0)"></image>
-		<rect key="1" id="1" x="309" y="557" class="st0" width="20"	height="18"	v-on:click="onClickApp" />
+		<rect v-for="seat in seats"
+				:key="seat.id"
+				:id="seat.id"
+				:x="seat.x"
+				:y="seat.y"
+				:class="['st0', seat.occupied ? 'disabled' : '']"
+				width="20"
+				height="18"
+				v-on:click="onClickApp" />
 	</svg>
 </template>
 
 <script>
 	export default {
+		props: {
+			seatCoordinates: Array
+		},
+		computed: {
+			seats: {
+				get: function () {
+                    return this.$store.getters.computedSeats(this.seatCoordinates)
+                },
+			}
+		},
+		data() {
+			return {
+				selectedChair: '',
+			}
+		},
 		methods: {
 			onClickApp(event) {
-				console.log('Clicked: ', event);
-			},
+				const id = event.currentTarget.id;
+				const elementID = document.getElementById(id);
+
+				if (elementID.classList.contains("disabled")) {
+					console.log("CHAIR IS DISABLED")
+					return;
+				}
+
+				if(this.selectedChair.length > 0) {
+					document.getElementById(this.selectedChair).classList.toggle("active")
+					this.selectedChair = ''
+				}
+
+				elementID.classList.toggle("active");
+
+				this.selectedChair = id
+			}
 		},
 	}
 </script>
@@ -4315,12 +4353,14 @@ svg {
     height: 100%;
     min-height: 794px;
 }
+
 .st0 {
 	fill: red;
 	
 	&.active {
 		fill: blue;
 	}
+
 	&.disabled {
 		fill: grey;
 	}

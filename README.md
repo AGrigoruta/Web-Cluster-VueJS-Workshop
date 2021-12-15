@@ -1,9 +1,13 @@
-## 4-vuex
+# vuejs-covid-hotseating-manager
 
-1.  Create a store
+## 5-get-seating
 
-2.  Configure a counter inside the state
+1.  Configure the state so it accepts the seat object
 
-3.  Add increment and decrement mutations
+2.  Create actions to fetch the seating data from the DB based on a given day
 
-4.  Integrate the store in the Counter component
+3.  Save the seating object inside the state
+
+4.  Create a getter to get a single seat based on the id
+
+5.  Integrate the seating data in the OfficeMap component

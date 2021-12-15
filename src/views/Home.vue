@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HelloWorld />
+    <HelloWorld/>
     <Counter />
   </div>
 </template>
