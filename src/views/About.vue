@@ -17,6 +17,13 @@
       return {
         apiData: {}
       }
+    },
+    mounted() {
+      fetch(`http://localhost:8081/api/test`)
+        .then(response => response.json())
+        .then((apiData) => {
+          this.apiData = apiData
+        })
     }
   }
 </script>

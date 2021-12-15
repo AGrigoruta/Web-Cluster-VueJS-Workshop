@@ -10,7 +10,6 @@
 
 <script>
     import OfficeMap from '@/components/OfficeMap';
-
     export default {
         name: 'Seating',
         components: {

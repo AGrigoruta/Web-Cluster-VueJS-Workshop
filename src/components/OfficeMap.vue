@@ -4315,14 +4315,12 @@ svg {
     height: 100%;
     min-height: 794px;
 }
-
 .st0 {
 	fill: red;
 	
 	&.active {
 		fill: blue;
 	}
-
 	&.disabled {
 		fill: grey;
 	}
