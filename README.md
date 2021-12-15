@@ -2,7 +2,7 @@
 
 ## 5-get-seating
 
-1.  Configure the state so it accepts the seat object
+1.  Configure the state so it accepts the seat ARRAY
 
 2.  Create actions to fetch the seating data from the DB based on a given day
 
