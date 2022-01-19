@@ -18,7 +18,8 @@ const store = createStore({
         return {
             count: 0,
             seats: [],
-            dayId: null
+            dayId: null,
+            username: '',
         }
     },
     mutations: {
@@ -33,6 +34,14 @@ const store = createStore({
         },
         setDayId(state, id) {
             state.dayId = id
+        },
+        updateUsername(state, username) {
+            state.username = username
+            localStorage.setItem('username', username)
+        },
+        logOut(state) {
+            localStorage.removeItem('username')
+            state.username = ''
         }
     },
     getters: {
@@ -44,6 +53,14 @@ const store = createStore({
         },
         getNumberOfEmptySeats: state => {
             return state.seats.filter(seat => !seat.occupied).length
+        },
+        getUsername: state => {
+            return localStorage.getItem('username') || state.username || null;
+        },
+        isloggedIn: state => {
+            const check = localStorage.getItem('username') !== null || state.username !== '' || false;
+            if (check) state.username = localStorage.getItem('username')
+            return check
         },
         computedSeats: (state) => (seatCoordinates) => {
             return state.seats.map((item, index) => {
